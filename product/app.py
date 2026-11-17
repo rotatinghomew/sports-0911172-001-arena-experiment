@@ -6,12 +6,14 @@ from .store import Store
 from .assignment import Assignment
 from .ledger import Ledger
 from .campaign import Campaign
+from .experiment import Experiment
 
 
 class Application:
     def __init__(self, path=':memory:'):
         self.store=Store(path)
-        self.services={'assignment':Assignment(self.store),'ledger':Ledger(self.store),'campaign':Campaign(self.store)}
+        self.services={'assignment':Assignment(self.store),'ledger':Ledger(self.store),
+                       'campaign':Campaign(self.store),'experiment':Experiment(self.store)}
 
     def execute(self, command, arguments):
         service, separator, operation=command.partition('.')

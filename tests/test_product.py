@@ -18,14 +18,14 @@ class ProductTests(unittest.TestCase):
     def test_workflow(self):
         self.app.replay(self.operations)
         state=self.app.store.snapshot()
-        for kind,count in {'sale': 1, 'refund': 1, 'coupon': 2}.items():
+        for kind,count in {'sale': 9, 'refund': 2, 'coupon': 3, 'evaluation': 1}.items():
             self.assertEqual(len(state[kind]),count,kind)
         self.assertEqual(state['sale'][0]['refunded'],2000)
 
     def test_business_rejection_is_atomic(self):
         self.app.replay(self.operations)
         before=self.app.store.snapshot()
-        command,arguments=['ledger.refund', {'id': 'r2', 'sale': 's1', 'cents': 9000, 'happened_at': '2026-10-19'}]
+        command,arguments=['ledger.refund', {'id': 'r3', 'sale': 's1', 'cents': 90000, 'happened_at': '2026-12-19'}]
         with self.assertRaises(ValueError):
             self.app.execute(command,arguments)
         self.assertEqual(before,self.app.store.snapshot())

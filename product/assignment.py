@@ -8,7 +8,7 @@ class Assignment:
         require(arm in ('activity','control'), '分组无效')
         require(len(people) == len(set(people)), '机会名单重复')
         return self.store.put('opportunity', id, dict(venue=venue, weekend=weekend,
-            arm=arm, people=people, exposures=[]), create=True)
+            arm=arm, people=people, exposures=[], schedule_revision=0), create=True)
 
     def expose(self, id, person, actual_venue, happened_at):
         with self.store.atomic():
@@ -23,7 +23,8 @@ class Assignment:
         require(len(people)==len(set(people)), '机会名单重复')
         record = self.store.get('opportunity', id)
         require(all(item['person'] in people for item in record['exposures']), '已曝光机会不能删除')
-        record.update(people=people, reason=reason)
+        record.update(people=people, reason=reason,
+                      schedule_revision=record.get('schedule_revision', 0) + 1)
         return self.store.put('opportunity', id, record)
 
     def totals(self):

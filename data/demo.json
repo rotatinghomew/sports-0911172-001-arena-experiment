@@ -2,33 +2,340 @@
   [
     "assignment.schedule",
     {
-      "id": "week1",
+      "id": "oa1",
       "venue": "north",
-      "weekend": "2026-10-17",
+      "weekend": "2026-12-05",
       "arm": "activity",
       "people": [
-        "p1",
-        "p2"
+        "a1",
+        "a2",
+        "a3",
+        "a4"
       ]
+    }
+  ],
+  [
+    "assignment.schedule",
+    {
+      "id": "oc1",
+      "venue": "west",
+      "weekend": "2026-12-05",
+      "arm": "control",
+      "people": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ]
+    }
+  ],
+  [
+    "assignment.schedule",
+    {
+      "id": "oa2",
+      "venue": "east",
+      "weekend": "2026-12-05",
+      "arm": "activity",
+      "people": [
+        "a5",
+        "a6",
+        "a7",
+        "a8"
+      ]
+    }
+  ],
+  [
+    "assignment.schedule",
+    {
+      "id": "oc2",
+      "venue": "central",
+      "weekend": "2026-12-05",
+      "arm": "control",
+      "people": [
+        "c5",
+        "c6",
+        "c7",
+        "c8"
+      ]
+    }
+  ],
+  [
+    "assignment.schedule",
+    {
+      "id": "oa3",
+      "venue": "south",
+      "weekend": "2026-12-05",
+      "arm": "activity",
+      "people": [
+        "a9",
+        "a10",
+        "a11",
+        "a12"
+      ]
+    }
+  ],
+  [
+    "assignment.schedule",
+    {
+      "id": "oc3",
+      "venue": "riverside",
+      "weekend": "2026-12-05",
+      "arm": "control",
+      "people": [
+        "c9",
+        "c10",
+        "c11",
+        "c12"
+      ]
+    }
+  ],
+  [
+    "experiment.plan",
+    {
+      "id": "plan1",
+      "opportunities": [
+        "oa1",
+        "oa2",
+        "oa3",
+        "oc1",
+        "oc2",
+        "oc3"
+      ],
+      "primary_metric": "net_revenue_per_slot",
+      "min_effect": 1000,
+      "guardrails": [
+        {
+          "metric": "complaint_rate",
+          "direction": "upper",
+          "limit": 0.3
+        },
+        {
+          "metric": "discount_rate",
+          "direction": "upper",
+          "limit": 0.6
+        }
+      ],
+      "looks": [
+        "2026-12-07T00:00:00+08:00",
+        "2026-12-14T00:00:00+08:00"
+      ],
+      "reason": "周末“打完球再逛商场”联动券试点放量判断"
     }
   ],
   [
     "assignment.expose",
     {
-      "id": "week1",
-      "person": "p1",
+      "id": "oa1",
+      "person": "a1",
+      "actual_venue": "west",
+      "happened_at": "2026-12-05T10:00:00+08:00"
+    }
+  ],
+  [
+    "assignment.expose",
+    {
+      "id": "oa1",
+      "person": "a2",
+      "actual_venue": "north",
+      "happened_at": "2026-12-05T10:00:00+08:00"
+    }
+  ],
+  [
+    "assignment.expose",
+    {
+      "id": "oa2",
+      "person": "a5",
+      "actual_venue": "east",
+      "happened_at": "2026-12-05T10:00:00+08:00"
+    }
+  ],
+  [
+    "assignment.expose",
+    {
+      "id": "oa2",
+      "person": "a6",
+      "actual_venue": "east",
+      "happened_at": "2026-12-05T10:00:00+08:00"
+    }
+  ],
+  [
+    "assignment.expose",
+    {
+      "id": "oa3",
+      "person": "a9",
       "actual_venue": "south",
-      "happened_at": "2026-10-17T10:00:00+08:00"
+      "happened_at": "2026-12-05T10:00:00+08:00"
+    }
+  ],
+  [
+    "assignment.expose",
+    {
+      "id": "oa3",
+      "person": "a10",
+      "actual_venue": "south",
+      "happened_at": "2026-12-05T10:00:00+08:00"
+    }
+  ],
+  [
+    "assignment.expose",
+    {
+      "id": "oc1",
+      "person": "c1",
+      "actual_venue": "west",
+      "happened_at": "2026-12-05T10:00:00+08:00"
+    }
+  ],
+  [
+    "assignment.expose",
+    {
+      "id": "oc1",
+      "person": "c2",
+      "actual_venue": "west",
+      "happened_at": "2026-12-05T10:00:00+08:00"
+    }
+  ],
+  [
+    "assignment.expose",
+    {
+      "id": "oc2",
+      "person": "c5",
+      "actual_venue": "central",
+      "happened_at": "2026-12-05T10:00:00+08:00"
+    }
+  ],
+  [
+    "assignment.expose",
+    {
+      "id": "oc2",
+      "person": "c6",
+      "actual_venue": "central",
+      "happened_at": "2026-12-05T10:00:00+08:00"
+    }
+  ],
+  [
+    "assignment.expose",
+    {
+      "id": "oc3",
+      "person": "c9",
+      "actual_venue": "riverside",
+      "happened_at": "2026-12-05T10:00:00+08:00"
+    }
+  ],
+  [
+    "assignment.expose",
+    {
+      "id": "oc3",
+      "person": "c10",
+      "actual_venue": "riverside",
+      "happened_at": "2026-12-05T10:00:00+08:00"
     }
   ],
   [
     "ledger.sale",
     {
       "id": "s1",
-      "opportunity": "week1",
-      "person": "p1",
+      "opportunity": "oa1",
+      "person": "a1",
+      "cents": 12000,
+      "happened_at": "2026-12-05T11:00:00+08:00",
+      "full_price": true,
+      "complaint": false
+    }
+  ],
+  [
+    "ledger.sale",
+    {
+      "id": "s2",
+      "opportunity": "oa1",
+      "person": "a2",
+      "cents": 9000,
+      "happened_at": "2026-12-05T11:00:00+08:00",
+      "full_price": false,
+      "complaint": false
+    }
+  ],
+  [
+    "ledger.sale",
+    {
+      "id": "s3",
+      "opportunity": "oa2",
+      "person": "a5",
+      "cents": 11000,
+      "happened_at": "2026-12-05T11:00:00+08:00",
+      "full_price": true,
+      "complaint": false
+    }
+  ],
+  [
+    "ledger.sale",
+    {
+      "id": "s4",
+      "opportunity": "oa2",
+      "person": "a6",
+      "cents": 10000,
+      "happened_at": "2026-12-05T11:00:00+08:00",
+      "full_price": true,
+      "complaint": false
+    }
+  ],
+  [
+    "ledger.sale",
+    {
+      "id": "s5",
+      "opportunity": "oa3",
+      "person": "a9",
+      "cents": 12000,
+      "happened_at": "2026-12-05T11:00:00+08:00",
+      "full_price": true,
+      "complaint": false
+    }
+  ],
+  [
+    "ledger.sale",
+    {
+      "id": "s6",
+      "opportunity": "oa3",
+      "person": "a10",
       "cents": 8000,
-      "happened_at": "2026-10-17T11:00:00+08:00"
+      "happened_at": "2026-12-05T11:00:00+08:00",
+      "full_price": false,
+      "complaint": false
+    }
+  ],
+  [
+    "ledger.sale",
+    {
+      "id": "s7",
+      "opportunity": "oc1",
+      "person": "c1",
+      "cents": 5000,
+      "happened_at": "2026-12-05T11:00:00+08:00",
+      "full_price": true,
+      "complaint": false
+    }
+  ],
+  [
+    "ledger.sale",
+    {
+      "id": "s8",
+      "opportunity": "oc2",
+      "person": "c5",
+      "cents": 6000,
+      "happened_at": "2026-12-05T11:00:00+08:00",
+      "full_price": true,
+      "complaint": false
+    }
+  ],
+  [
+    "ledger.sale",
+    {
+      "id": "s9",
+      "opportunity": "oc3",
+      "person": "c9",
+      "cents": 5500,
+      "happened_at": "2026-12-05T11:00:00+08:00",
+      "full_price": true,
+      "complaint": true
     }
   ],
   [
@@ -37,7 +344,25 @@
       "id": "r1",
       "sale": "s1",
       "cents": 2000,
-      "happened_at": "2026-10-18T11:00:00+08:00"
+      "happened_at": "2026-12-06T11:00:00+08:00"
+    }
+  ],
+  [
+    "ledger.refund",
+    {
+      "id": "r2",
+      "sale": "s7",
+      "cents": 1000,
+      "happened_at": "2026-12-08T11:00:00+08:00"
+    }
+  ],
+  [
+    "experiment.evaluate",
+    {
+      "id": "eval1",
+      "plan_id": "plan1",
+      "as_of": "2026-12-07T00:00:00+08:00",
+      "note": "首个计划内查看节点"
     }
   ],
   [
@@ -45,10 +370,16 @@
     {
       "id": "c1",
       "opportunities": [
-        "week1"
+        "oa1",
+        "oa2",
+        "oa3",
+        "oc1",
+        "oc2",
+        "oc3"
       ],
-      "coupon_count": 2,
-      "reason": "人工小范围联动"
+      "coupon_count": 3,
+      "reason": "试点扩大到下个月全部周末场次",
+      "evaluation": "eval1"
     }
   ],
   [

@@ -13,7 +13,10 @@ class BusinessBehaviorTests(unittest.TestCase):
         self.app.store.close()
     def test_approval_retry_keeps_coupon_count(self):
         self.app.execute('campaign.approve',dict(id='c1',reviewer='operator'))
-        self.assertEqual(len(self.app.store.all('coupon')),2)
+        self.assertEqual(len(self.app.store.all('coupon')),3)
+        # 已批准的重复审批不额外发券
+        self.app.execute('campaign.approve',dict(id='c1',reviewer='operator'))
+        self.assertEqual(len(self.app.store.all('coupon')),3)
 
     def test_refund_history_is_preserved(self):
         history=self.app.store.history('sale','s1')
