@@ -1,0 +1,61 @@
+[
+  [
+    "assignment.schedule",
+    {
+      "id": "week1",
+      "venue": "north",
+      "weekend": "2026-10-17",
+      "arm": "activity",
+      "people": [
+        "p1",
+        "p2"
+      ]
+    }
+  ],
+  [
+    "assignment.expose",
+    {
+      "id": "week1",
+      "person": "p1",
+      "actual_venue": "south",
+      "happened_at": "2026-10-17T10:00:00+08:00"
+    }
+  ],
+  [
+    "ledger.sale",
+    {
+      "id": "s1",
+      "opportunity": "week1",
+      "person": "p1",
+      "cents": 8000,
+      "happened_at": "2026-10-17T11:00:00+08:00"
+    }
+  ],
+  [
+    "ledger.refund",
+    {
+      "id": "r1",
+      "sale": "s1",
+      "cents": 2000,
+      "happened_at": "2026-10-18T11:00:00+08:00"
+    }
+  ],
+  [
+    "campaign.request",
+    {
+      "id": "c1",
+      "opportunities": [
+        "week1"
+      ],
+      "coupon_count": 2,
+      "reason": "人工小范围联动"
+    }
+  ],
+  [
+    "campaign.approve",
+    {
+      "id": "c1",
+      "reviewer": "operator"
+    }
+  ]
+]
